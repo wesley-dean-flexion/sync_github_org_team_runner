@@ -17,4 +17,4 @@ jobs:
       image: wesleydeanflexion/sync_github_org_team:1
     steps:
       - name: Synchronize
-        run: python /sync.py
+        run: python ./sync.py
