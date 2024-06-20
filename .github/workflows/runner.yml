@@ -10,9 +10,14 @@ on:
 
 permissions: read-all
 
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
 jobs:
   synchronize:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     container:
       image: wesleydeanflexion/sync_github_org_team:1
       env:
