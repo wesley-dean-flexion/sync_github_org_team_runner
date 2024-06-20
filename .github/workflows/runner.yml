@@ -15,6 +15,15 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: wesleydeanflexion/sync_github_org_team:1
+      env:
+        PAT: ${{ secrets.PAT }}
+        TEAM_NAME: ${{ env.TEAM_NAME }}
+        DELAY: ${{ env.DELAY }}
+        DRY_RUN: ${{ env.DRY_RUN }}
+        LOG_LEVEL: ${{ env.LOG_LEVEL }}
+        ORG: ${{ env.ORG }}
+        USER_FILTERS: ${{ env.USER_FILTERS }}
+
     steps:
       - name: Synchronize
         run: python /workdir/sync.py
