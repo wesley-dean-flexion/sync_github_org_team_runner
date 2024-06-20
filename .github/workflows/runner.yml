@@ -1,0 +1,20 @@
+---
+
+name: Runner
+
+# yamllint disable-line rule:truthy
+on:
+  schedule:
+    - cron: "0 0,4,8,12,16,20 * * *"  # every four hours, every day
+  workflow_dispatch:
+
+permissions: read-all
+
+jobs:
+  synchronize:
+    runs-on: ubuntu-latest
+    container:
+      image: wesleydeanflexion/sync_github_org_team:1
+    steps:
+      - name: Synchronize
+        run: python /sync.py
