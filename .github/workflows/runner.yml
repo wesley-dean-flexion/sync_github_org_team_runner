@@ -17,12 +17,12 @@ jobs:
       image: wesleydeanflexion/sync_github_org_team:1
       env:
         PAT: ${{ secrets.PAT }}
-        TEAM_NAME: ${{ secrets.TEAM_NAME }}
-        DELAY: ${{ secrets.DELAY }}
-        DRY_RUN: ${{ secrets.DRY_RUN }}
-        LOG_LEVEL: ${{ secrets.LOG_LEVEL }}
-        ORG: ${{ secrets.ORG }}
-        USER_FILTERS: ${{ secrets.USER_FILTERS }}
+        TEAM_NAME: ${{ vars.TEAM_NAME }}
+        DELAY: ${{ vars.DELAY }}
+        DRY_RUN: ${{ vars.DRY_RUN }}
+        LOG_LEVEL: ${{ vars.LOG_LEVEL }}
+        ORG: ${{ vars.ORG }}
+        USER_FILTERS: ${{ vars.USER_FILTERS }}
 
     steps:
       - name: Synchronize
